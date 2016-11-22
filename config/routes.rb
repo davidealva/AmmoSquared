@@ -1,4 +1,7 @@
  Rails.application.routes.draw do
+  get 'step2', to: 'profile#step2'
+  get 'step3', to: 'profile#step3'
+
   devise_for :users
 
   devise_scope :user do
