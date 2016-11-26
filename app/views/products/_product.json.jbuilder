@@ -1,0 +1,2 @@
+json.extract! product, :id, :caliber, :grade, :bullet_weight, :cost_per, :price_per, :rounds_box, :description, :weight_per, :brand, :sku, :quantity_avail, :created_at, :updated_at
+json.url product_url(product, format: :json)

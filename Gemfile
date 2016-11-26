@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 gem "figaro"
 gem 'devise'
 gem 'angularjs-rails'
+gem 'simple_form'
 
 group :production do
   gem 'pg'

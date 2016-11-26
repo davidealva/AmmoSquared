@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3" style="margin-top:100px">
+      <h1>Your Profile:</h1>
+
+      <p>
+        <strong>Cust number:</strong>
+        <%= @profile.cust_number %>
+      </p>
+
+      <p>
+        <strong>Firstname:</strong>
+        <%= @profile.firstname %>
+      </p>
+
+      <p>
+        <strong>Lastname:</strong>
+        <%= @profile.lastname %>
+      </p>
+
+      <p>
+        <strong>Phone number:</strong>
+        <%= number_to_phone(@profile.phone_number, area_code: true) %>
+      </p>
+
+      <p>
+        <strong>Street1:</strong>
+        <%= @profile.street1 %>
+      </p>
+
+      <p>
+        <strong>Street2:</strong>
+        <%= @profile.street2 %>
+      </p>
+
+      <p>
+        <strong>City:</strong>
+        <%= @profile.city %>
+      </p>
+
+      <p>
+        <strong>State:</strong>
+        <%= @profile.state %>
+      </p>
+
+      <p>
+        <strong>Zip:</strong>
+        <%= @profile.zip %>
+      </p>
+
+      <p>
+        <strong>Account credit:</strong>
+        <%= @profile.account_credit %>
+      </p>
+
+      <p>
+        <strong>Last shipment:</strong>
+        <%= @profile.last_shipment %>
+      </p>
+
+      <p>
+        <strong>Money spent:</strong>
+        <%= @profile.money_spent %>
+      </p>
+
+      <p>
+        <strong>Restricted:</strong>
+        <%= @profile.restricted %>
+      </p>
+
+      <p>
+        <strong>Shipping zone:</strong>
+        <%= @profile.shipping_zone %>
+      </p>
+
+      <p>
+        <strong>Lifetime spent:</strong>
+        <%= @profile.lifetime_spent %>
+      </p>
+
+      <p>
+        <strong>Interval:</strong>
+        <%= @profile.interval %>
+      </p>
+
+      <p>
+        <strong>Start date:</strong>
+        <%= @profile.start_date %>
+      </p>
+
+      <%= link_to 'Edit', edit_profile_path(@profile) %> |
+      <%= link_to 'Back', profiles_path %>
+    </div>
+  </div>
+</div>

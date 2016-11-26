@@ -1,0 +1,2 @@
+json.extract! profile, :id, :cust_number, :firstname, :lastname, :phone_number, :street1, :street2, :city, :state, :zip, :account_credit, :last_shipment, :money_spent, :restricted, :shipping_zone, :lifetime_spent, :interval, :start_date, :created_at, :updated_at
+json.url profile_url(profile, format: :json)

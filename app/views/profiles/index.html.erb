@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" style="margin-top:100px">
+
+      <h1>All Profiles</h1>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Cust number</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Account credit</th>
+            <th>Last shipment</th>
+            <th>Money spent</th>
+            <th>Lifetime spent</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @profiles.each do |profile| %>
+            <tr>
+              <td><%= profile.cust_number %></td>
+              <td><%= profile.firstname %></td>
+              <td><%= profile.lastname %></td>
+              <td><%= profile.user.email %></td>
+              <td><%= number_to_phone(profile.phone_number, area_code: true) %></td>
+              <td><%= profile.city %></td>
+              <td><%= profile.state %></td>
+              <td><%= profile.account_credit %></td>
+              <td><%= profile.last_shipment %></td>
+              <td><%= profile.money_spent %></td>
+              <td><%= profile.lifetime_spent %></td>
+              <td><%= link_to 'Show', profile %></td>
+              <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+              <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%= link_to 'New Profile', new_profile_path %>
+    </div>
+  </div>
+</div>
