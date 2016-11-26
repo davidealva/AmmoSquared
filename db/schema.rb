@@ -10,7 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116043108) do
+ActiveRecord::Schema.define(version: 20161126202232) do
+
+  create_table "products", force: :cascade do |t|
+    t.string   "caliber"
+    t.string   "grade"
+    t.string   "bullet_weight"
+    t.decimal  "cost_per"
+    t.decimal  "price_per"
+    t.string   "rounds_box"
+    t.text     "description"
+    t.decimal  "weight_per"
+    t.string   "brand"
+    t.string   "sku"
+    t.string   "quantity_avail"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "cust_number"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "phone_number"
+    t.string   "street1"
+    t.string   "street2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "billing_street1"
+    t.string   "billing_street2"
+    t.string   "billing_city"
+    t.string   "billing_state"
+    t.string   "billing_zip"
+    t.decimal  "account_credit"
+    t.date     "last_shipment"
+    t.decimal  "money_spent"
+    t.boolean  "restricted"
+    t.string   "shipping_zone"
+    t.decimal  "lifetime_spent"
+    t.string   "interval"
+    t.date     "start_date"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string   "caliber"
+    t.string   "grade"
+    t.string   "weight_range"
+    t.decimal  "amount"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

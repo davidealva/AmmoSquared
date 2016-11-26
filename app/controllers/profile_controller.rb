@@ -5,9 +5,10 @@ class ProfileController < ApplicationController
   end
 
   def step3
+  
   end
 
-  def profile
-  end
+  #def profile
+  #end
 
 end
