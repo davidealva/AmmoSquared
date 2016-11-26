@@ -1,0 +1,32 @@
+<%= simple_form_for(@profile) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :cust_number %>
+    <%= f.input :firstname %>
+    <%= f.input :lastname %>
+    <%= f.input :phone_number %>
+    <%= f.input :street1 %>
+    <%= f.input :street2 %>
+    <%= f.input :city %>
+    <%= f.input :state %>
+    <%= f.input :zip %>
+    <%= f.input :billing_street1 %>
+    <%= f.input :billing_street2 %>
+    <%= f.input :billing_city %>
+    <%= f.input :billing_state %>
+    <%= f.input :billing_zip %>
+    <%= f.input :account_credit %>
+    <%= f.input :last_shipment %>
+    <%= f.input :money_spent %>
+    <%= f.input :restricted %>
+    <%= f.input :shipping_zone %>
+    <%= f.input :lifetime_spent %>
+    <%= f.input :interval %>
+    <%= f.input :start_date %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

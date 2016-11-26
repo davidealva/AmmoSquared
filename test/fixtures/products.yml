@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  caliber: MyString
+  grade: MyString
+  bullet_weight: MyString
+  cost_per: 9.99
+  price_per: 9.99
+  rounds_box: MyString
+  description: MyText
+  weight_per: 9.99
+  brand: MyString
+  sku: MyString
+  quantity_avail: MyString
+
+two:
+  caliber: MyString
+  grade: MyString
+  bullet_weight: MyString
+  cost_per: 9.99
+  price_per: 9.99
+  rounds_box: MyString
+  description: MyText
+  weight_per: 9.99
+  brand: MyString
+  sku: MyString
+  quantity_avail: MyString

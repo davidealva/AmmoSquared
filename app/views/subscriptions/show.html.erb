@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Caliber:</strong>
+  <%= @subscription.caliber %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @subscription.grade %>
+</p>
+
+<p>
+  <strong>Weight range:</strong>
+  <%= @subscription.weight_range %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @subscription.amount %>
+</p>
+
+<%= link_to 'Edit', edit_subscription_path(@subscription) %> |
+<%= link_to 'Back', subscriptions_path %>

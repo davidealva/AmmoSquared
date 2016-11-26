@@ -1,0 +1,21 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :caliber %>
+    <%= f.input :grade %>
+    <%= f.input :bullet_weight %>
+    <%= f.input :cost_per %>
+    <%= f.input :price_per %>
+    <%= f.input :rounds_box %>
+    <%= f.input :description %>
+    <%= f.input :weight_per %>
+    <%= f.input :brand %>
+    <%= f.input :sku %>
+    <%= f.input :quantity_avail %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

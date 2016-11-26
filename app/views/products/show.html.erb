@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 well" style="margin-top:100px">
+
+      <p>
+        <strong>Caliber:</strong>
+        <%= @product.caliber %>
+      </p>
+
+      <p>
+        <strong>Grade:</strong>
+        <%= @product.grade %>
+      </p>
+
+      <p>
+        <strong>Bullet weight:</strong>
+        <%= @product.bullet_weight %>
+      </p>
+
+      <p>
+        <strong>Cost per:</strong>
+        <%= @product.cost_per %>
+      </p>
+
+      <p>
+        <strong>Price per:</strong>
+        <%= @product.price_per %>
+      </p>
+
+      <p>
+        <strong>Rounds box:</strong>
+        <%= @product.rounds_box %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @product.description %>
+      </p>
+
+      <p>
+        <strong>Weight per:</strong>
+        <%= @product.weight_per %>
+      </p>
+
+      <p>
+        <strong>Brand:</strong>
+        <%= @product.brand %>
+      </p>
+
+      <p>
+        <strong>Sku:</strong>
+        <%= @product.sku %>
+      </p>
+
+      <p>
+        <strong>Quantity avail:</strong>
+        <%= @product.quantity_avail %>
+      </p>
+
+      <%= link_to 'Edit', edit_product_path(@product) %> |
+      <%= link_to 'Back', products_path %>
+    </div>
+  </div>
+</div>
