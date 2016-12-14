@@ -6,6 +6,7 @@ class CreateSubscriptions < ActiveRecord::Migration[5.0]
       t.string :weight_range
       t.decimal :amount
 
+      t.belongs_to :user, index: true
       t.timestamps
     end
   end

@@ -15,6 +15,8 @@ gem "figaro"
 gem 'devise'
 gem 'angularjs-rails'
 gem 'simple_form'
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
+gem 'bootstrap-will_paginate'
 
 group :production do
   gem 'pg'

@@ -13,19 +13,21 @@
 ActiveRecord::Schema.define(version: 20161126202232) do
 
   create_table "products", force: :cascade do |t|
+    t.string   "prod_type"
     t.string   "caliber"
     t.string   "grade"
     t.string   "bullet_weight"
-    t.decimal  "cost_per"
-    t.decimal  "price_per"
-    t.string   "rounds_box"
+    t.decimal  "cost_per_round"
+    t.decimal  "price_per_round"
+    t.string   "rounds_per_box"
+    t.decimal  "box_price"
     t.text     "description"
-    t.decimal  "weight_per"
+    t.decimal  "weight_per_round"
     t.string   "brand"
     t.string   "sku"
     t.string   "quantity_avail"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -62,8 +64,10 @@ ActiveRecord::Schema.define(version: 20161126202232) do
     t.string   "grade"
     t.string   "weight_range"
     t.decimal  "amount"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

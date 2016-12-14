@@ -23,7 +23,7 @@
       <h4>Select the calibers you would like:</h4>
       <div class="">
         <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#home">Handgun</a></li>
+        <li class="active"><a data-toggle="tab" href="#home">Pistol</a></li>
         <li><a data-toggle="tab" href="#menu1">Rifle</a></li>
         <li><a data-toggle="tab" href="#menu2">Rimfire</a></li>
         <li><a data-toggle="tab" href="#menu3">Shotgun</a></li>
@@ -31,45 +31,43 @@
 
       <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
-          <div class="btn-group">
-            <button type="button" class="btn-caliber">9MM</button>
-            <button type="button" class="btn-caliber ">40 SW</button>
-            <button type="button" class="btn-caliber ">45 ACP</button>
-            <button type="button" class="btn-caliber ">10MM</button>
-          </div>
-          <div class="btn-group">
-            <button type="button" class="btn-caliber">380 Auto</button>
-            <button type="button" class="btn-caliber ">38 Special</button>
-            <button type="button" class="btn-caliber ">357 MAG</button>
-            <button type="button" class="btn-caliber ">44 MAG</button>
-          </div>
-          <div class="btn-group">
-            <button type="button" class="btn-caliber">357 Sig</button>
-            <button type="button" class="btn-caliber ">45 Long</button>
-            <button type="button" class="btn-caliber ">5.7x28</button>
-            <button type="button" class="btn-caliber ">25 ACP</button>
-          </div>
-          <div class="btn-group">
-            <button type="button" class="btn-caliber">32 ACP</button>
-            <button type="button" class="btn-caliber ">32 HR Mag</button>
-            <button type="button" class="btn-caliber ">9mm Mak</button>
-            <button type="button" class="btn-caliber ">44Special</button>
-          </div>
+          <% @pistol.each_slice(4) do |pistols| %>
+            <div class="btn-group">
+              <% pistols.each do |product| %>
+                <button name="selected_cal" value="<%= product.caliber %>" type="button" class="btn-caliber"><%= product.caliber %></button>
+              <% end %>
+            </div>
+          <% end %>
         </div>
 
         <div id="menu1" class="tab-pane fade">
-          <h3>Rifle</h3>
-          <p>Repeat tab one with rifle calibers.</p>
+          <% @rifle.each_slice(4) do |rifles| %>
+            <div class="btn-group">
+              <% rifles.each do |product| %>
+                <button type="button" class="btn-caliber"><%= product.caliber %></button>
+              <% end %>
+            </div>
+          <% end %>
         </div>
 
         <div id="menu2" class="tab-pane fade">
-          <h3>Rimfire</h3>
-          <p>Repeat tab one with rimfire calibers.</p>
+          <% @rimfire.each_slice(4) do |rimfires| %>
+            <div class="btn-group">
+              <% rimfires.each do |product| %>
+                <button type="button" class="btn-caliber"><%= product.caliber %></button>
+              <% end %>
+            </div>
+          <% end %>
         </div>
 
         <div id="menu3" class="tab-pane fade">
-          <h3>Shotgun</h3>
-          <p>Repeast tab one with shotgon calibers.</p>
+          <% @shotgun.each_slice(4) do |shotguns| %>
+            <div class="btn-group">
+              <% shotguns.each do |product| %>
+                <button type="button" class="btn-caliber"><%= product.caliber %></button>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
       </div>
@@ -78,97 +76,34 @@
     <div id="rightside" class="col-md-5">
       <h4>Estimated monthly contribution: $ <a href="#">00.00</a></h4>
       <h4>Estimated monthly accumilation(rounds): <a href="#">000.00</a></h4>
-      <div class="caliber-list">
+      <div ng-app="app" ng-controller="indexCtrl" class="caliber-list">
         <h4>Available options:</h4>
-        <ul class="media-list main-list">
-  			  <li class="media">
-  			    <a class="pull-left" href="#">
-  			      <img class="media-object" src="http://placehold.it/100x100" alt="...">
-  			    </a>
-
-  			    <div class="media-body">
-              <div class="col-md-8 pull-left">
-                <p class=""><b>Grade:</b> Value</p>
-                <p class="">Price per round: $<a href="#">.212</a></p>
-                <p class="">Bullet Weight: 115gr</p>
-                <p class="">Box of <a href="#">50</a> rounds: $<a href="#">27.65</a></p>
-              </div>
-              <div class="listingInput col-md-4 pull-right">
-                <input type="text" class="form-control" id="" placeholder="$ per month">
-                <button type="button" class="btn btn-danger pull-right">ADD</button>
-              </div>
-            </div>
-  			  </li>
+        <ul>
+          <% @products.each do |product| %>
           <li class="media">
-  			    <a class="pull-left" href="#">
-  			      <img class="media-object" src="http://placehold.it/100x100" alt="...">
-  			    </a>
-
-  			    <div class="media-body">
+            <a class="pull-left" href="#">
+              <img class="media-object" src="http://placehold.it/100x100" alt="...">
+            </a>
+            <div class="media-body">
               <div class="col-md-8 pull-left">
-                <p class=""><b>Grade:</b> Value</p>
-                <p class="">Price per round: $<a href="#">.212</a></p>
-                <p class="">Bullet Weight: 115gr</p>
-                <p class="">Box of <a href="#">50</a> rounds: $<a href="#">27.65</a></p>
+                <p class=""><b>Grade:</b> <%= product.caliber  %></p>
+                <p class="">Price per round: $<a href="#"><%= product.price_per_round %></a></p>
+                <p class="">Bullet Weight: <%= product.bullet_weight %></p>
+                <p class="">Box of <a href="#"><%= product.rounds_per_box %></a> rounds: $<a href="#">27.65</a></p>
               </div>
               <div class="listingInput col-md-4 pull-right">
                 <input type="text" class="form-control" id="" placeholder="$ per month">
                 <button type="button" class="btn btn-danger pull-right">ADD</button>
               </div>
             </div>
-  			  </li>
-          <li class="media">
-  			    <a class="pull-left" href="#">
-  			      <img class="media-object" src="http://placehold.it/100x100" alt="...">
-  			    </a>
-
-  			    <div class="media-body">
-              <div class="col-md-8 pull-left">
-                <p class=""><b>Grade:</b> Value</p>
-                <p class="">Price per round: $<a href="#">.212</a></p>
-                <p class="">Bullet Weight: 115gr</p>
-                <p class="">Box of <a href="#">50</a> rounds: $<a href="#">27.65</a></p>
-              </div>
-              <div class="listingInput col-md-4 pull-right">
-                <input type="text" class="form-control" id="" placeholder="$ per month">
-                <button type="button" class="btn btn-danger pull-right">ADD</button>
-              </div>
-            </div>
-  			  </li>
-          <li class="media">
-  			    <a class="pull-left" href="#">
-  			      <img class="media-object" src="http://placehold.it/100x100" alt="...">
-  			    </a>
-
-  			    <div class="media-body">
-              <div class="col-md-8 pull-left">
-                <p class=""><b>Grade:</b> Value</p>
-                <p class="">Price per round: $<a href="#">.212</a></p>
-                <p class="">Bullet Weight: 115gr</p>
-                <p class="">Box of <a href="#">50</a> rounds: $<a href="#">27.65</a></p>
-              </div>
-              <div class="listingInput col-md-4 pull-right">
-                <input type="text" class="form-control" id="" placeholder="$ per month">
-                <button type="button" class="btn btn-danger pull-right">ADD</button>
-              </div>
-            </div>
-  			  </li>
-  			</ul>
+          </li>
+          <% end %>
+        </ul>
       </div>
       <nav aria-label="Page navigation">
         <ul class="pagination">
           <li>
-            <a href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li>
-            <a href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
+            <%= will_paginate(@products) %>
           </li>
         </ul>
       </nav>
@@ -218,7 +153,7 @@
     </div>
     <div class="col-md-3 pull-right">
       <div class="cta">
-        <%= link_to 'Continue', step3_path, class: 'btn btn-primary' %>
+        <%= link_to 'Continue', step3_path(current_user), class: 'btn btn-primary' %>
         <h3 class="pull-right">To Step #3</h3>
         <p>Don't worry, you can always adjust and change your monthly accumulations and contributions at anytime.</p>
       </div>
