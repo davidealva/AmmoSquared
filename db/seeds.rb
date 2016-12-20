@@ -5,29 +5,32 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+User.destroy_all
+User.create([
+  email: "david@david.com",
+  password: "peelo5141"
+  ])
+  
 Product.destroy_all
-
-
 Product.create([
-  { brand: "Federal", caliber: ".22", grade: "value", prod_type: 'rimfire' },
-  { brand: "Remington", caliber: ".22", grade: "value", prod_type: 'rimfire' },
-  { brand: "CCI", caliber: ".22", grade: "value", prod_type: 'rimfire' },
-  { brand: "Remington", caliber: "9mm", grade: "value", prod_type: 'pistol'},
-  { brand: "Hornday", caliber: "9mm", grade: "defense", prod_type: 'pistol'},
-  { brand: "Winchester", caliber: "9mm", grade: "value", prod_type: 'pistol'},
-  { brand: "Hornday", caliber: ".45", grade: "defense", prod_type: 'pistol'},
-  { brand: "Winchester", caliber: ".45", grade: "value", prod_type: 'pistol' },
-  { brand: "Remington", caliber: ".45", grade: "defense", prod_type: 'pistol'},
-  { brand: "Remington", caliber: "40mm", grade: "value", prod_type: 'pistol'},
-  { brand: "Hornday", caliber: "40mm", grade: "defense", prod_type: 'pistol'},
-  { brand: "Winchester", caliber: "40mm", grade: "value", prod_type: 'pistol'},
-  { brand: "Hornday", caliber: ".357", grade: "defense", prod_type: 'pistol'},
-  { brand: "Winchester", caliber: ".357", grade: "value", prod_type: 'pistol' },
-  { brand: "Remington", caliber: ".357", grade: "defense", prod_type: 'pistol'},
-  { brand: "Federal", caliber: "12g", grade: "value", prod_type: 'shotgun'},
-  { brand: "Remington", caliber: "12g", grade: "value", prod_type: 'shotgun'},
-  { brand: "Winchester", caliber: "12g", grade: "value", prod_type: 'shotgun'},
+  { brand: "Federal", caliber: ".22", grade: "Value", prod_type: 'Rimfire' },
+  { brand: "Remington", caliber: ".22", grade: "Value", prod_type: 'Rimfire' },
+  { brand: "CCI", caliber: ".22", grade: "Value", prod_type: 'Rimfire' },
+  { brand: "Remington", caliber: "9mm", grade: "Value", prod_type: 'Pistol'},
+  { brand: "Hornday", caliber: "9mm", grade: "Defense", prod_type: 'Pistol'},
+  { brand: "Winchester", caliber: "9mm", grade: "Value", prod_type: 'Pistol'},
+  { brand: "Hornday", caliber: ".45", grade: "Defense", prod_type: 'Pistol'},
+  { brand: "Winchester", caliber: ".45", grade: "Value", prod_type: 'Pistol' },
+  { brand: "Remington", caliber: ".45", grade: "Defense", prod_type: 'Pistol'},
+  { brand: "Remington", caliber: "40mm", grade: "Value", prod_type: 'Pistol'},
+  { brand: "Hornday", caliber: "40mm", grade: "Defense", prod_type: 'Pistol'},
+  { brand: "Winchester", caliber: "40mm", grade: "Value", prod_type: 'Pistol'},
+  { brand: "Hornday", caliber: ".357", grade: "Defense", prod_type: 'Pistol'},
+  { brand: "Winchester", caliber: ".357", grade: "Value", prod_type: 'Pistol' },
+  { brand: "Remington", caliber: ".357", grade: "Defense", prod_type: 'Pistol'},
+  { brand: "Federal", caliber: "12g", grade: "Value", prod_type: 'Shotgun'},
+  { brand: "Remington", caliber: "12g", grade: "Value", prod_type: 'Shotgun'},
+  { brand: "Winchester", caliber: "12g", grade: "Value", prod_type: 'Shotgun'},
 ])
 
 

@@ -34,7 +34,7 @@
           <% @pistol.each_slice(4) do |pistols| %>
             <div class="btn-group">
               <% pistols.each do |product| %>
-                <button name="selected_cal" value="<%= product.caliber %>" type="button" class="btn-caliber"><%= product.caliber %></button>
+                <button type="button" class="btn-caliber"><%= product.caliber %></button>
               <% end %>
             </div>
           <% end %>
@@ -44,7 +44,7 @@
           <% @rifle.each_slice(4) do |rifles| %>
             <div class="btn-group">
               <% rifles.each do |product| %>
-                <button type="button" class="btn-caliber"><%= product.caliber %></button>
+                <button ng-click="selectBy('<%= product.caliber %>')" type="button" class="btn-caliber"><%= product.caliber %></button>
               <% end %>
             </div>
           <% end %>
@@ -54,7 +54,7 @@
           <% @rimfire.each_slice(4) do |rimfires| %>
             <div class="btn-group">
               <% rimfires.each do |product| %>
-                <button type="button" class="btn-caliber"><%= product.caliber %></button>
+                <button ng-click="selectBy('<%= product.caliber %>')" type="button" class="btn-caliber"><%= product.caliber %></button>
               <% end %>
             </div>
           <% end %>
@@ -64,7 +64,7 @@
           <% @shotgun.each_slice(4) do |shotguns| %>
             <div class="btn-group">
               <% shotguns.each do |product| %>
-                <button type="button" class="btn-caliber"><%= product.caliber %></button>
+                <button ng-click="selectBy('<%= product.caliber %>')" type="button" class="btn-caliber"><%= product.caliber %></button>
               <% end %>
             </div>
           <% end %>
@@ -76,7 +76,7 @@
     <div id="rightside" class="col-md-5">
       <h4>Estimated monthly contribution: $ <a href="#">00.00</a></h4>
       <h4>Estimated monthly accumilation(rounds): <a href="#">000.00</a></h4>
-      <div ng-app="app" ng-controller="indexCtrl" class="caliber-list">
+      <div  class="caliber-list">
         <h4>Available options:</h4>
         <ul>
           <% @products.each do |product| %>
@@ -86,20 +86,41 @@
             </a>
             <div class="media-body">
               <div class="col-md-8 pull-left">
-                <p class=""><b>Grade:</b> <%= product.caliber  %></p>
+                <p class=""><b>Grade:</b> <%= product.caliber %></p>
                 <p class="">Price per round: $<a href="#"><%= product.price_per_round %></a></p>
                 <p class="">Bullet Weight: <%= product.bullet_weight %></p>
                 <p class="">Box of <a href="#"><%= product.rounds_per_box %></a> rounds: $<a href="#">27.65</a></p>
               </div>
               <div class="listingInput col-md-4 pull-right">
-                <input type="text" class="form-control" id="" placeholder="$ per month">
-                <button type="button" class="btn btn-danger pull-right">ADD</button>
+                <!-- <input type="text" class="form-control" id="" placeholder="$ per month"> -->
+                <%= link_to "ADD", cart_path(product.id), class:"btn btn-danger pull-right", :remote => true %>
+                <!-- <a href="/cart/<%= product.id %>" type="button" class="btn btn-danger pull-right">ADD</a> -->
               </div>
             </div>
           </li>
           <% end %>
         </ul>
+        <!-- <ul class="media-list" ng-repeat="product in products | filter:filterBy">
+          <li class="media">
+            <a class="pull-left" href="#">
+              <img class="media-object" src="http://placehold.it/100x100" alt="...">
+            </a>
+            <div class="media-body">
+              <div class="col-md-8 pull-left">
+                <p class=""><b>Grade:</b> {{ product.caliber }}</p>
+                <p class="">Price per round: $<a href="#">{{ product.price_per_round }}</a></p>
+                <p class="">Bullet Weight: {{ product.bullet_weight }}</p>
+                <p class="">Box of <a href="#">{{ product.rounds_per_box }}</a> rounds: $<a href="#">27.65</a></p>
+              </div>
+              <div class="listingInput col-md-4 pull-right">
+                <input type="text" class="form-control" id="" placeholder="$ per month" >
+                <button type="button" class="btn btn-danger pull-right" ng-click='addItem(product)'>ADD</button>
+              </div>
+            </div>
+          </li>
+        </ul> -->
       </div>
+
       <nav aria-label="Page navigation">
         <ul class="pagination">
           <li>
@@ -107,50 +128,16 @@
           </li>
         </ul>
       </nav>
+
     </div>
   </div>
+
   <div id="accountTable" class="row">
     <h4>Your monthly accumilation:</h4>
-    <div class="col-md-9">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th># per Month</th>
-            <th>Est Weight</th>
-            <th>Monthly Contribution</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>9mm Value 115gr</td>
-            <td>8.65</td>
-            <td>.63 lb</td>
-            <td>{ amount }</td>
-            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-          </tr>
-          <tr>
-            <td>5.56 Service 55gr</td>
-            <td>50.65</td>
-            <td>.70 lb</td>
-            <td>{ amount }</td>
-            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-          </tr>
-          <tr>
-            <td>.22 Value 36gr</td>
-            <td>102.22</td>
-            <td>2.53 lb</td>
-            <td>{ amount }</td>
-            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-          </tr>
-        </tbody>
-      </table>
+    <div id="item-list"class="col-md-9">
+      <%= render 'items', item: @order_items %>
     </div>
+
     <div class="col-md-3 pull-right">
       <div class="cta">
         <%= link_to 'Continue', step3_path(current_user), class: 'btn btn-primary' %>

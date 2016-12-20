@@ -13,6 +13,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @order = current_user.order
+    @order_items = @order.order_items
   end
 
   # GET /profiles/1/edit

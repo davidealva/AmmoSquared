@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12" style="margin-top:100px">
-
+      <%= link_to 'New Product', new_product_path, class: 'btn btn-primary pull-right'  %>
       <h1>Products</h1>
 
       <table class="table">
@@ -26,9 +26,7 @@
         <tbody>
           <% @products.each do |product| %>
             <tr>
-
-              <td><%= product.prod_type.humanize %></td>
-
+              <td><%= product.prod_type %></td>
               <td><%= product.caliber %></td>
               <td><%= product.grade.humanize %></td>
               <td><%= product.bullet_weight %></td>
@@ -47,10 +45,7 @@
           <% end %>
         </tbody>
       </table>
-
-      <br>
-
-      <%= link_to 'New Product', new_product_path %>
+    <%= will_paginate(@products) %>
     </div>
   </div>
 </div>
