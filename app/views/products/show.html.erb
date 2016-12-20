@@ -1,64 +1,75 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 well" style="margin-top:100px">
+    <div class="col-md-12" style="margin-top:100px">
+      <div class="col-md-6">
+        <img class="" src="http://placehold.it/500x500">
+      </div>
+      <div class="col-md-6 pull-right">
+        <p>
+          <strong>Caliber:</strong>
+          <%= @product.prod_type %>
+        </p>
 
-      <p>
-        <strong>Caliber:</strong>
-        <%= @product.caliber %>
-      </p>
+        <p>
+          <strong>Caliber:</strong>
+          <%= @product.caliber %>
+        </p>
 
-      <p>
-        <strong>Grade:</strong>
-        <%= @product.grade %>
-      </p>
+        <p>
+          <strong>Grade:</strong>
+          <%= @product.grade %>
+        </p>
 
-      <p>
-        <strong>Bullet weight:</strong>
-        <%= @product.bullet_weight %>
-      </p>
+        <p>
+          <strong>Bullet weight:</strong>
+          <%= @product.bullet_weight %>
+        </p>
 
-      <p>
-        <strong>Cost per:</strong>
-        <%= @product.cost_per %>
-      </p>
+        <p>
+          <strong>Cost per:</strong>
+          <%= @product.cost_per_round %>
+        </p>
 
-      <p>
-        <strong>Price per:</strong>
-        <%= @product.price_per %>
-      </p>
+        <p>
+          <strong>Price per:</strong>
+          <%= @product.price_per_round %>
+        </p>
 
-      <p>
-        <strong>Rounds box:</strong>
-        <%= @product.rounds_box %>
-      </p>
+        <p>
+          <strong>Rounds box:</strong>
+          <%= @product.rounds_per_box %>
+        </p>
 
-      <p>
-        <strong>Description:</strong>
-        <%= @product.description %>
-      </p>
+        <p>
+          <strong>Description:</strong>
+          <%= @product.description %>
+        </p>
 
-      <p>
-        <strong>Weight per:</strong>
-        <%= @product.weight_per %>
-      </p>
+        <p>
+          <strong>Weight per:</strong>
+          <%= @product.weight_per_round %>
+        </p>
 
-      <p>
-        <strong>Brand:</strong>
-        <%= @product.brand %>
-      </p>
+        <p>
+          <strong>Brand:</strong>
+          <%= @product.brand %>
+        </p>
 
-      <p>
-        <strong>Sku:</strong>
-        <%= @product.sku %>
-      </p>
+        <p>
+          <strong>Sku:</strong>
+          <%= @product.sku %>
+        </p>
 
-      <p>
-        <strong>Quantity avail:</strong>
-        <%= @product.quantity_avail %>
-      </p>
+        <p>
+          <strong>Quantity avail:</strong>
+          <%= @product.quantity_avail %>
+        </p>
+        <a class="btn btn-primary" href="/cart/<%= @product.id %>">Add To Cart</a>
+      </div>
+<!--
+        <%= link_to 'Edit', edit_product_path(@product) %> |
+        <%= link_to 'Back', products_path %> -->
 
-      <%= link_to 'Edit', edit_product_path(@product) %> |
-      <%= link_to 'Back', products_path %>
     </div>
   </div>
 </div>

@@ -1,12 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12" style="margin-top:100px">
-
+      <%= link_to 'New Product', new_product_path, class: 'btn btn-primary pull-right'  %>
       <h1>Products</h1>
 
       <table class="table">
         <thead>
           <tr>
+            <th>Category</th>
             <th>Caliber</th>
             <th>Grade</th>
             <th>Bullet weight</th>
@@ -25,14 +26,15 @@
         <tbody>
           <% @products.each do |product| %>
             <tr>
+              <td><%= product.prod_type %></td>
               <td><%= product.caliber %></td>
-              <td><%= product.grade %></td>
+              <td><%= product.grade.humanize %></td>
               <td><%= product.bullet_weight %></td>
-              <td><%= product.cost_per %></td>
-              <td><%= product.price_per %></td>
-              <td><%= product.rounds_box %></td>
+              <td><%= product.cost_per_round %></td>
+              <td><%= product.price_per_round %></td>
+              <td><%= product.rounds_per_box %></td>
               <td><%= product.description %></td>
-              <td><%= product.weight_per %></td>
+              <td><%= product.weight_per_round %></td>
               <td><%= product.brand %></td>
               <td><%= product.sku %></td>
               <td><%= product.quantity_avail %></td>
@@ -43,10 +45,7 @@
           <% end %>
         </tbody>
       </table>
-
-      <br>
-
-      <%= link_to 'New Product', new_product_path %>
+    <%= will_paginate(@products) %>
     </div>
   </div>
 </div>
