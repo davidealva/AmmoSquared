@@ -8,7 +8,7 @@
 User.destroy_all
 User.create([
   email: "david@david.com",
-  password: "peelo5141"
+  password: "password"
   ])
   
 Product.destroy_all
